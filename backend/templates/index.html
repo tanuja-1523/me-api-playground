@@ -136,7 +136,8 @@
   </div>
 
   <script>
-    const API_BASE = "http://127.0.0.1:5000";
+    // ✅ Relative path so it works on localhost & Render both
+    const API_BASE = "";
 
     async function checkHealth() {
       const res = await fetch(`${API_BASE}/health`);

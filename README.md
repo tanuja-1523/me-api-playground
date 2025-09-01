@@ -98,7 +98,40 @@ JSON-based API
 <img width="1103" height="527" alt="Screenshot 2025-09-01 154349" src="https://github.com/user-attachments/assets/342477e8-cefb-44c7-aab9-c5dd072f0e9e" />
 
 
-✨ Author
+### Clear Schema (Track A)
+
+Entity / Resource	Fields / Attributes	Description	Notes / Indexing
+users	id, name, email	Stores all user details	Indexed by id for fast lookup
+projects	id, title, ownerId, status	Stores project information	Indexed by id and ownerId
+tasks	id, projectId, title, status	Tasks under each project	Indexed by projectId for efficient querying
+
+Notes:
+
+All IDs are unique and auto-generated.
+
+Relationships are maintained via ownerId and projectId.
+
+Designed for efficient read-heavy operations.
+
+### Remarks
+
+# Limits / Trade-offs:
+
+The current implementation uses a JSON/mock database, which is not suitable for large-scale production data.
+
+Read operations are optimized via indexing, but write-heavy operations may experience slower performance.
+
+No authentication/authorization is implemented yet.
+
+# Next Steps / Improvements:
+
+Migrate to a real database like MongoDB or PostgreSQL.
+
+Add authentication and role-based access control.
+
+Implement caching and pagination for large datasets.
+
+Add unit tests and error handling for robustness.
 
 ✨ Author
 
